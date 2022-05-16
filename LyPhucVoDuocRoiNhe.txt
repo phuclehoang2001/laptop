@@ -1,0 +1,1 @@
+chết tiệt cái thằng chết tiệt này!
