@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./fonts/fontawesome-free-5.15.1-web/css/all.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/admin_style.css"> -->
 </head>
@@ -41,14 +43,14 @@
         mysqli_close($con);
     ?>
         <div class="main-content">
-            <h1>Danh sách sản phẩm</h1>
+            <h1 style="text-align: center">Danh sách sản phẩm</h1>
             <div class="btn btn-info" >
-                    <a href="admin.php?act=add" style="text-decoration: none;">Thêm sản phẩm</a>
+                    <a href="admin.php?act=add" style="text-decoration: none; color:white;">Thêm sản phẩm</a>
                 </div>
             <div class="product-items">
                 <div class="table-responsive-sm border border-2">
-                    <table class="table table-bordered table-striped table-hover">
-                        <thead >
+                    <table class="table table-bordered table-striped table-hover" style="text-align: center;vertical-align: middle;">
+                        <thead style="vertical-align: middle;">
                             <tr>
                                 <th>Id<a href="./admin.php?muc=4&tmuc=Sản%20phẩm&sapxep=idgiam"><i class="fa fa-arrow-down"></i></a><a href="./admin.php?muc=4&tmuc=Sản%20phẩm&sapxep=idtang"><i class="fa fa-arrow-up"></i></a></th>
                                 <th>Ảnh </th>
@@ -71,8 +73,17 @@
                                     <td><?= $row['so_luong'] ?></td>
                                     <td><?= $row['sl_da_ban'] ?></td>
                                     <td><?php if($row['trangthai']=='0')echo "Hiển thị";else echo "Bị ẩn" ?></td>
-                                    <td><a href="admin.php?act=sua&id=<?= $row['id'] ?>" style="text-decoration: none;">Sửa</a></td>
-                                    <td><?php if($row['trangthai']=='1'){?><a href="admin.php?act=xoa&id=<?= $row['id'] ?>" style="text-decoration: none;" onclick="return confirm('Are you sure you want to delete this item?');">Xóa</a><?php }?></td>                                  
+                                    <td><a href="admin.php?act=sua&id=<?= $row['id'] ?>" style="text-decoration: none;"><i class="fas fa-edit"></i></a></td>
+                                    <td>
+                                        <?php if($row['trangthai']=='1'){
+                                            ?><a href="admin.php?act=xoa&id=<?= $row['id'] ?>" style="text-decoration: none;" onclick="return confirm('Are you sure you want to delete this item?');">
+                                                <i class="fas fa-trash-alt"></i>
+                                                </a>
+                                            <?php 
+                                            }
+                                        ?>
+                                        
+                                    </td>                                  
                                     <div class="clear-both"></div>
                                 </tr><?php } ?>
                         </tbody>
