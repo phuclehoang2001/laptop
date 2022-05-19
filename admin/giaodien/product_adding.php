@@ -5,25 +5,34 @@ $sql = "INSERT INTO `sanpham` (`id`, `ten_sp`, `hinh_anh`, `don_gia`, `noi_dung`
     $theloai=mysqli_query($con,"SELECT * FROM `theloai`");
     $nhacungcap=mysqli_query($con,"SELECT * FROM `nhacungcap`");
 ?>
-<h1>Thêm sản phẩm</h1>
+<style>
+    .wrap-field li{
+        list-style: none;
+    }
+</style>
+<h1 style="text-align: center;">Thêm sản phẩm</h1>
 <div class="box-contentt">
-<form name="product-formadd" method="POST" action="./xulythem.php" enctype="multipart/form-data">
+<form class="form-group" name="product-formadd" method="POST" action="./xulythem.php" enctype="multipart/form-data">
     
-    <div class="clear-both"></div>
+    <!-- <div class="clear-both"></div> -->
+    <div class="modal-header">
+     <h5 class="modal-title">Chỉnh sửa</h5>
+    </div>
+    <div class="modal-body">
     <div class="wrap-field">
         <label>Tên sản phẩm: </label>
-        <input type="text" name="name" value="" />
+        <input class="form-control" type="text" name="name" value="" />
         <div class="clear-both"></div>
     </div>
     <div class="wrap-field">
         <label>Giá sản phẩm: </label>
-        <input type="number" name="price" value="" />
+        <input class="form-control" type="number" name="price" value="" />
         <div class="clear-both"></div>
     </div>
     <div class="wrap-field">
         <label>Ảnh đại diện: </label>
         <div class="wrap-field">
-            <input type="file" name="image" />
+            <input class="form-control" type="file" name="image" />
         </div>
         <div class="clear-both"></div>
     </div>
@@ -31,26 +40,29 @@ $sql = "INSERT INTO `sanpham` (`id`, `ten_sp`, `hinh_anh`, `don_gia`, `noi_dung`
         <label>Thư viện ảnh: </label>
         <div class="wrap-field"> 
             
-            <input multiple="" type="file" name="gallery[]" />
+            <input class="form-control" multiple="" type="file" name="gallery[]" />
         </div>
         <div class="clear-both"></div>
     </div>
     <div class="wrap-field">
         <label>ID thể loại: </label>
-        <select name="idtl"><?php while($row=mysqli_fetch_array($theloai)){?><option value="<?= $row['id']?>"><?= $row['id']?> - <?=$row['ten_tl']?></option><?php } ?></select>
+        <select class="form-control" name="idtl"><?php while($row=mysqli_fetch_array($theloai)){?><option value="<?= $row['id']?>"><?= $row['id']?> - <?=$row['ten_tl']?></option><?php } ?></select>
         <div class="clear-both"></div>
     </div>
     <div class="wrap-field">
         <label>ID nhà cung cấp: </label>
-        <select name="idncc"><?php while($row=mysqli_fetch_array($nhacungcap)){?><option value="<?= $row['id']?>"><?= $row['id']?> - <?=$row['ten_ncc']?></option><?php } ?></select>
+        <select class="form-control" name="idncc"><?php while($row=mysqli_fetch_array($nhacungcap)){?><option value="<?= $row['id']?>"><?= $row['id']?> - <?=$row['ten_ncc']?></option><?php } ?></select>
         <div class="clear-both"></div>
     </div>
     <div class="wrap-field">
         <label>Nội dung: </label>
-        <textarea name="content" id="product-content"></textarea>
+        <textarea class="form-control" name="content" id="product-content"></textarea>
         <div class="clear-both"></div>
     </div>
-    <input name="btnadd" type="submit" title="Lưu sản phẩm" value="Lưu" />
+    </div>
+    <div class="modal-footer">
+    <input name="btnadd" class="btn btn-primary" type="submit" title="Lưu sản phẩm" value="Lưu" />
+    </div>
 </form>
 <div class="clear-both"></div>
 
