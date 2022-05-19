@@ -14,14 +14,14 @@
 
     ?>
 <div class="main-content" style="width: fit-content">
-            <h1>Quyền- Danh mục</h1>
+<h1 style="text-align: center;">Quyền- Danh mục</h1>
             <div class="product-items">
-            <div class="buttons">
-                    <a href="admin.php?act=addquyen">Thêm Quyền</a>
+            <div class="btn btn-info" >
+                    <a href="admin.php?act=addquyen"style="text-decoration: none; color:white;">Thêm Quyền</a>
                 </div>
                 <div class="table-responsive-sm ">
-                    <table class="table table-bordered table-striped table-hover">
-                        <thead >
+                    <table class="table table-bordered table-striped table-hover"style="text-align: center;vertical-align: middle;">
+                        <thead style="vertical-align: middle;">
                             <tr>
                                 <th>Id</th>
                                 <th>Tên quyền</th>
@@ -36,8 +36,8 @@
                                 <tr>                              
                                     <td><?= $row['id'] ?></td>
                                     <td><?= $row['ten_quyen'] ?></td>
-                                    <td><a href="admin.php?act=suaquyen&id=<?= $row['id'] ?>&tquyen=<?= $row['ten_quyen'] ?>">Sửa</a></td>
-                                    <td><a href="admin.php?act=xoaquyen&id=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this item?');">Xóa</a></td>
+                                    <td><a href="admin.php?act=suaquyen&id=<?= $row['id'] ?>&tquyen=<?= $row['ten_quyen'] ?>"style="text-decoration: none;"><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="admin.php?act=xoaquyen&id=<?= $row['id'] ?>" style="text-decoration: none;"onclick="return confirm('Are you sure you want to delete this item?');"><i class="fas fa-trash-alt"></i></a></td>
                                     <div class="clear-both"></div>
                                 </tr>
                                 <?php } ?>
