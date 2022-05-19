@@ -91,8 +91,19 @@
 						<?php if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 							if(isset($_SESSION['ten_dangnhap']) && !empty($_SESSION['ten_dangnhap']))
 								echo '<button style="width:100%" onclick="thanhtoan(\''.$_SESSION['ten_dangnhap'].'\'); thanhToanThanhCong();" class="primary-btn order-submit" >Tiến Hành THanh Toán</button>';
-								else echo '<button style="width:100%" class="primary-btn order-submit" >Vui Lòng đăng nhập để Tiến Hành THanh Toán</button>';
+								else echo '<a href="index.php?act=login"><button style="width:100%" class="primary-btn order-submit" >Vui Lòng đăng nhập để Tiến Hành THanh Toán</button></a>';
 							//<a href="frontend/thanh_toan.php" class="primary-btn order-submit" >Tiến Hành THanh Toán</a>
+						}else{
+							//cần fix
+							var_dump($_SESSION['ten_dangnhap']) ;
+							$con=mysqli_connect("localhost","root","","laptopdb");
+							$result = mysqli_query($con,'SELECT * FROM khachhang WHERE ten_dangnhap='.$_SESSION['ten_dangnhap']);
+							var_dump($result);
+    						$khachhang = $result->fetch_assoc();
+							var_dump($khachhang['ten_kh']) ;
+							$khachhang=executeSingleResult('');
+							if($khachhang['ten_kh']||$khachhang['dia_chi'])
+							echo '<button style="width:100%" class="primary-btn order-submit" >Vui Lòng điền đủ tên và địa chỉ trong phần thông tin cá nhân để Tiến Hành THanh Toán</button>';
 						}
 							?>
 					</div>
