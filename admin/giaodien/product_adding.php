@@ -16,7 +16,7 @@ $sql = "INSERT INTO `sanpham` (`id`, `ten_sp`, `hinh_anh`, `don_gia`, `noi_dung`
     
     <!-- <div class="clear-both"></div> -->
     <div class="modal-header">
-     <h5 class="modal-title">Chỉnh sửa</h5>
+     <h5 class="modal-title">Thêm mới</h5>
     </div>
     <div class="modal-body">
     <div class="wrap-field">
