@@ -7,7 +7,7 @@
 <form name="theloai-formadd"class="form-group" method="POST" action="./xulythem.php" enctype="multipart/form-data">
     <!-- <div class="clear-both"></div> -->
     <div class="modal-header">
-     <h5 class="modal-title">Chỉnh sửa</h5>
+     <h5 class="modal-title">Thêm mới</h5>
 </div>
 <div class="modal-body">
     <div class="box-content">
