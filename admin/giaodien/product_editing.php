@@ -24,7 +24,7 @@ if (!empty($_GET['id'])) {
     $theloai=mysqli_query($con,"SELECT * FROM `theloai`");
     $nhacungcap=mysqli_query($con,"SELECT * FROM `nhacungcap`");
 ?>
-<h1>Sửa sản phẩm</h1>
+<h1 style="text-align: center;">Sửa sản phẩm</h1>
     <div class="box-content">
             <form name="product-formsua" method="post" action="./xulythem.php?act=sua&id=<?= $_GET['id'] ?>" class="form-group" enctype="multipart/form-data">
                 <div class="modal-header">
