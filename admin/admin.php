@@ -22,6 +22,7 @@
     <!-- Font Awesome Icon -->
     <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./fonts/fontawesome-free-5.15.1-web/css/all.min.css">
     <!-- Custom stlylesheet -->
     <!-- <link type="text/css" rel="stylesheet" href="css/style.css" /> -->
     <!-- <link rel="stylesheet" type="text/css" href="css/admin_style.css"> -->
