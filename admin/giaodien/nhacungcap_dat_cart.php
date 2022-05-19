@@ -11,29 +11,30 @@ if (isset($_SESSION['cart'])) {
 		}
 	}
 	if (isset($_POST['update_click'])) {
-		if(isset($_POST['qty'])){
+		if (isset($_POST['qty'])) {
 			foreach ($_POST['qty'] as $key => $val1) {
-			$_SESSION['cart'][$key]['qty'] = $val1;
-			if ($_SESSION['cart'][$key]['qty'] <= 0) {
-			unset($_SESSION['cart'][$key]);
+				$_SESSION['cart'][$key]['qty'] = $val1;
+				if ($_SESSION['cart'][$key]['qty'] <= 0) {
+					unset($_SESSION['cart'][$key]);
+				}
+			}
 		}
-		}
-		
-		
-		}
-		
 	}
 
 	//echo '<pre>';
 	//var_dump($_SESSION['cart']);
 ?>
-	<form action="./admin.php?act=ncccartlist" method="POST">
+	<form action="./admin.php?act=ncccartlist" class="form-group" method="POST">
 		<div class="table-responsive-sm ">
-			<div class="buttons" style="float: left;"><a href="./admin.php?muc=9&tmuc=Nhà%20cung%20cấp">Thoát</a></div>
-			<div class="buttons">
-				<input type="submit" name="update_click" value="Cập nhật">
+			<div class="btn-back">
+				<a href="./admin.php?muc=9&tmuc=Nhà%20cung%20cấp">
+					<i class="fas fa-chevron-circle-left"></i>
+				</a>
 			</div>
-			<table class="table table-bordered table-striped table-hover">
+			<!-- <div class="btn btn-info" > -->
+			<input type="submit" class="btn btn-info" name="update_click" value="Cập nhật" style="text-decoration: none; color:white;">
+			<!-- </div> -->
+			<table class="table table-bordered table-striped table-hover" style="text-align: center;vertical-align: middle;">
 				<tr>
 					<th>STT</th>
 					<th>ID</th>
@@ -59,37 +60,39 @@ if (isset($_SESSION['cart'])) {
 					<td><?php echo $val['price'] ?></td>
 					<td><input type="number" name="qty[<?= $key ?>]" value="<?php echo $val['qty'] ?>"></td>
 					<td><?= $val['qty'] * $val['price'] ?></td>
-					<td><a href="./admin.php?act=ncccartlist&xoa=y&id=<?= $key ?>">Xóa</a></td>
+					<td><a href="./admin.php?act=ncccartlist&xoa=y&id=<?= $key ?>" style="text-decoration: none;"><i class="fas fa-trash-alt"></i></a></td>
 					</tr>
 				<?php
 					$total += $val['qty'] * $val['price'];
 				}
 				?>
-				<label>Tổng tiền là:<?= $total ?></label>
+				<label style="float: right;">Tổng tiền là:<?= $total ?></label>
 			</table>
-			<div style="border: 1px solid #ccc; padding: 10px;">
+			<!-- <div style="border: 1px solid #ccc; padding: 10px;"> -->
+			<div class="modal-body">
 				<div class="wrap-field">
 					<label>Tên cơ sở: </label>
-					<input type="text" name="namenv" value="" />
+					<input class="form-control" type="text" name="namenv" value="" />
 					<div class="clear-both"></div>
 				</div>
 				<div class="wrap-field">
 					<label>Địa chỉ: </label>
-					<input type="text" name="diachi" value="" />
+					<input class="form-control" type="text" name="diachi" value="" />
 					<div class="clear-both"></div>
 				</div>
 				<div class="wrap-field">
 					<label>SĐT: </label>
-					<input type="tel" name="sdt" pattern="[0]{1}[0-9]{9}" value=""  placeholder="VD: 0123456789" />
+					<input class="form-control" type="tel" name="sdt" pattern="[0]{1}[0-9]{9}" value="" placeholder="VD: 0123456789" />
 					<div class="clear-both"></div>
 				</div>
 				<div class="wrap-field">
 					<label>Ghi chú: </label>
-					<input type="text" name="ghichu" value="" />
+					<input class="form-control" type="text" name="ghichu" value="" />
 					<div class="clear-both"></div>
 				</div>
-
-				<input type="submit" name="order_click" value="Đặt hàng">
+			</div>
+			<div class="modal-footer">
+				<input type="submit"class="btn btn-primary" name="order_click" value="Đặt hàng">
 			</div>
 		</div>
 	</form>
@@ -120,11 +123,11 @@ if (isset($_SESSION['cart'])) {
 								}
 								$insertOrder = mysqli_query($con, "INSERT INTO `ctphieunhap` (`id_phieunhap`, `id_sp`, `so_luong`) VALUES " . $insertString . "");
 								// $success = "Đặt hàng thành công";
-								if ($insertOrder){
-									$listcate=executeResult('SELECT * FROM `theloai` WHERE 1');
-									foreach($listcate as $item){
-										$tongsanphamtheoloai=executeSingleResult('SELECT SUM(so_luong) AS sl FROM sanpham WHERE id_the_loai='.$item['id'])['sl'];
-										execute('UPDATE theloai SET tong_sp="'.$tongsanphamtheoloai.'" WHERE id='.$item['id']);
+								if ($insertOrder) {
+									$listcate = executeResult('SELECT * FROM `theloai` WHERE 1');
+									foreach ($listcate as $item) {
+										$tongsanphamtheoloai = executeSingleResult('SELECT SUM(so_luong) AS sl FROM sanpham WHERE id_the_loai=' . $item['id'])['sl'];
+										execute('UPDATE theloai SET tong_sp="' . $tongsanphamtheoloai . '" WHERE id=' . $item['id']);
 									}
 									unset($_SESSION['cart']);
 									echo ('<a href="./admin.php?muc=6&tmuc=Phiếu%20nhập">Nhấp vào mình đi, bạn thành công rồi đó </a>');
