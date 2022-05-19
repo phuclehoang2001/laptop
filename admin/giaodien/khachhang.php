@@ -12,11 +12,11 @@
         mysqli_close($con);
     ?>
 <div class="main-content" style="width: fit-content">
-            <h1>Khách hàng</h1>
+            <h1 style="text-align: center">Khách hàng</h1>
             <div class="product-items">
                 <div class="table-responsive-sm ">
-                    <table class="table table-bordered table-striped table-hover">
-                        <thead >
+                    <table class="table table-bordered table-striped table-hover" style="text-align: center;vertical-align: middle;">
+                        <thead style="vertical-align: middle;">
                             <tr>
                                 <th>Tên khách hàng</th>
                                 <th>Email</th>
