@@ -14,11 +14,11 @@
         mysqli_close($con);
     ?>
 <div class="main-content" style="width: fit-content">
-            <h1>Sửa</h1>
+<h1 style="text-align: center;">Sửa</h1>
             <div class="product-items">
             <form action="./xulythem.php?idq=<?= $_GET['id']?>" method="POST">
             <input type="text" name="tendanhmuc" value="<?= $_GET['tquyen'] ?>">
-            <input type="submit" name="btndmsua"value="Lưu">
+            <input type="submit" name="btndmsua"value="Lưu"class="btn btn-info"style="text-decoration: none; color:white;">
                 <div class="table-responsive-sm ">
                     <table class="table table-bordered table-striped table-hover">
                         <thead >
