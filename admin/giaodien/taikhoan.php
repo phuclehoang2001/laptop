@@ -14,14 +14,14 @@
 
     ?>
 <div class="main-content" style="width: fit-content">
-            <h1>Tài khoản</h1>
+            <h1 style="text-align: center;">Tài khoản</h1>
             <div class="product-items">
-            <div class="buttons">
-                    <a href="admin.php?act=addtk">Thêm tài khoản</a>
+            <div class="btn btn-info" >
+                    <a href="admin.php?act=addtk" style="text-decoration: none; color:white;">Thêm tài khoản</a>
                 </div>
                 <div class="table-responsive-sm ">
-                    <table class="table table-bordered table-striped table-hover">
-                        <thead >
+                    <table class="table table-bordered table-striped table-hover" style="text-align: center;vertical-align: middle;">
+                        <thead style="vertical-align: middle;">
                             <tr>
                                 <th>Username</th>
                                 <th>Pass</th>
