@@ -15,6 +15,17 @@
             }
         ?>
 </div>
+<script>
+        
+        const element = document.querySelectorAll('.list-group-item');
+        console.log(element);
+            for (var i = 0; i < element.length; i++) {  
+                if(element[i].href == location.href){
+                    console.log(location.href);
+                    element[i].classList.add("active");
+                }           
+            }
+    </script>
     <!-- <ul class="input-select2" >
         
         
