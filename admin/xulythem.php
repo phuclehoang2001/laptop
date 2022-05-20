@@ -363,6 +363,40 @@
                     if ($result1)
                         header("location:./admin.php?act=xnhdtc&dk=yes");
                     else header("location:./admin.php?act=xnhdtc&dk=no");
+                    // fix 
+                    // $cthoadon = mysqli_query($conn, "SELECT * FROM `cthoadon`,`sanpham` WHERE `id_hoadon`='".$_GET['id']."' AND `cthoadon`.`id_sanpham`=`sanpham`.`id`");
+                    // while ($row = mysqli_fetch_array($cthoadon)) {
+                    //     $sl=executeSingleResult('SELECT so_luong FROM sanpham WHERE id='.$key)['so_luong'];
+                    //     $sldabancu=executeSingleResult('SELECT sl_da_ban FROM sanpham WHERE id='.$key)['sl_da_ban'];
+                    //     execute('UPDATE sanpham SET so_luong="'.($sl-$row['']).'", sl_da_ban="'.($value['qty']+$sldabancu).'" WHERE id='.$key);
+                    // }
+                } else header("location:./admin.php?act=xnhdtc&dk=no");
+        }
+    }
+    if (isset($_GET['act'])) {
+        if ($_GET['act'] == 'xnhd_dnt') {
+            if (isset($_GET['cuser']))
+                if ($_GET['cuser'] == '') {
+                    $conn = mysqli_connect("localhost", "root", "", "laptopdb");
+                    //$sql="SELECT `hoadon`.`id`, `id_khachhang`, `tong_tien`, `hoadon`.`ngay_tao`, `id_nhanvien`, `trangthai`, `ten_dangnhap`, `ten_nv`,`nhanvien`.`id` AS `idnv` FROM (`hoadon` LEFT JOIN `nhanvien` ON `nhanvien`.`id`=`id_nhanvien` ) WHERE `hoadon`.`id` = " . $_GET['id'] . "";
+                    // $taikhoan = mysqli_query($conn, "SELECT `id`, `ten_dangnhap` FROM `nhanvien` WHERE `id`='" . $_GET['iduser'] . "'");
+                    // // $hoadon=mysqli_query($conn,$sql);var_dump($hoadon);
+                    // $row = mysqli_fetch_array($taikhoan);
+                    if ($_GET['ttgiaohang'] == "0") {
+                        header("location:./admin.php?act=xnhdtc&dk=no");
+                        exit;
+                    }
+                    $result1 = mysqli_query($conn, "UPDATE `hoadon` SET `da_nhan_tien` = '1' ,`nhanvien_nhantien` = '" . $_GET['iduser'] . "',`ngay_tao`=`ngay_tao` WHERE `id` = '" . $_GET['id'] . "'");
+                    if ($result1)
+                        header("location:./admin.php?act=xnhdtc&dk=yes");
+                    else header("location:./admin.php?act=xnhdtc&dk=no");
+                    // fix 
+                    // $cthoadon = mysqli_query($conn, "SELECT * FROM `cthoadon`,`sanpham` WHERE `id_hoadon`='".$_GET['id']."' AND `cthoadon`.`id_sanpham`=`sanpham`.`id`");
+                    // while ($row = mysqli_fetch_array($cthoadon)) {
+                    //     $sl=executeSingleResult('SELECT so_luong FROM sanpham WHERE id='.$key)['so_luong'];
+                    //     $sldabancu=executeSingleResult('SELECT sl_da_ban FROM sanpham WHERE id='.$key)['sl_da_ban'];
+                    //     execute('UPDATE sanpham SET so_luong="'.($sl-$row['']).'", sl_da_ban="'.($value['qty']+$sldabancu).'" WHERE id='.$key);
+                    // }
                 } else header("location:./admin.php?act=xnhdtc&dk=no");
         }
     }

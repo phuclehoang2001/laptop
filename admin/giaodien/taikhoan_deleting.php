@@ -12,7 +12,7 @@ if (!empty($_SESSION['nguoidung'])) {
                 include_once './function.php';
                 $result = execute("DELETE FROM `taikhoang` WHERE `username` = '" . $_GET['id']."'");
                 if (!$result) {
-                    $error = "Không thể xóa Tài khoản.";
+                    $error = false;
                 }
                 if ($error != false) {
                     ?>

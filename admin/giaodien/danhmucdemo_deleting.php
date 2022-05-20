@@ -12,7 +12,7 @@ if (!empty($_SESSION['nguoidung'])) {
                 include_once './function.php';
                 $result = execute("DELETE FROM `quyen` WHERE `id` = " . $_GET['id']."");
                 if (!$result) {
-                    $error = "Không thể xóa Quyền.";
+                    $error = false;
                 }
                 if ($error != false) {
                     ?>

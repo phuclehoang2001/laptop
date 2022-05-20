@@ -12,7 +12,7 @@ if (!empty($_SESSION['nguoidung'])) {
                 include_once './function.php';
                 $result = execute("DELETE FROM `nhacungcap` WHERE `id` = " . $_GET['id']."");
                 if (!$result) {
-                    $error = "Không thể xóa nhà cung cấp.";
+                    $error = false;
                 }
                 if ($error != false) {
                     ?>
