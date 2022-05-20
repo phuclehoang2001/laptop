@@ -72,17 +72,17 @@ if (isset($_SESSION['cart'])) {
 			<div class="modal-body">
 				<div class="wrap-field">
 					<label>Tên cơ sở: </label>
-					<input class="form-control" type="text" name="namenv" value="" />
+					<input class="form-control" type="text" name="namenv" value="Công ty SWAG" />
 					<div class="clear-both"></div>
 				</div>
 				<div class="wrap-field">
 					<label>Địa chỉ: </label>
-					<input class="form-control" type="text" name="diachi" value="" />
+					<input class="form-control" type="text" name="diachi" value="173 An Dương Vương" />
 					<div class="clear-both"></div>
 				</div>
 				<div class="wrap-field">
 					<label>SĐT: </label>
-					<input class="form-control" type="tel" name="sdt" pattern="[0]{1}[0-9]{9}" value="" placeholder="VD: 0123456789" />
+					<input class="form-control" type="tel" name="sdt" pattern="[0]{1}[0-9]{9}" value="0794290037" placeholder="VD: 0123456789" />
 					<div class="clear-both"></div>
 				</div>
 				<div class="wrap-field">
@@ -92,7 +92,7 @@ if (isset($_SESSION['cart'])) {
 				</div>
 			</div>
 			<div class="modal-footer">
-				<input type="submit"class="btn btn-primary" name="order_click" value="Đặt hàng">
+				<input type="submit" class="btn btn-primary" name="order_click" value="Đặt hàng">
 			</div>
 		</div>
 	</form>
@@ -130,7 +130,12 @@ if (isset($_SESSION['cart'])) {
 										execute('UPDATE theloai SET tong_sp="' . $tongsanphamtheoloai . '" WHERE id=' . $item['id']);
 									}
 									unset($_SESSION['cart']);
-									echo ('<a href="./admin.php?muc=6&tmuc=Phiếu%20nhập">Nhấp vào mình đi, bạn thành công rồi đó </a>');
+									// echo ('<a href="./admin.php?muc=6&tmuc=Phiếu%20nhập">Nhấp vào mình đi, bạn thành công rồi đó </a>');
+	?>
+						<script>
+							location.reload();
+						</script>
+	<?php
 								}
 							} else echo "Vui lòng nhập đủ thông tin!!";
 					} else echo "Vui lòng nhập đủ thông tin!!";

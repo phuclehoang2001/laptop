@@ -12,7 +12,7 @@ if (!empty($_SESSION['nguoidung'])) {
                 include_once './function.php';
                 $result = execute("DELETE FROM `hoadon` WHERE `id` = " . $_GET['id']."");
                 if (!$result) {
-                    $error = "Không thể xóa hóa đơn.";
+                    $error = false;
                 }
                 if ($error != false) {
                     ?>
