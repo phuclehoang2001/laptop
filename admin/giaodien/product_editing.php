@@ -37,7 +37,7 @@ if (!empty($_GET['id'])) {
                     </div>
                     <div>
                         <label>Giá sản phẩm</label>
-                        <input class="form-control" type="number" name="price" value="<?= (!empty($product) ? $product['don_gia'] : "") ?>" />
+                        <input class="form-control" type="number" name="price"min="3000000" max="50000000" value="<?= (!empty($product) ? $product['don_gia'] : "") ?>" />
                     </div>
                     
                     <div>

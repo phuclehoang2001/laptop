@@ -440,5 +440,13 @@ if (isset($_GET['act'])) {
     <a href="./admin.php?tmuc=Nhân viên">Danh sách Nhân viên</a>
 </div>');
 }
+if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'addspanh')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Vui lòng chọn ảnh loại JPEG,PNG,GIF</h2>
+    
+    <a href="./admin.php?tmuc=Sản phẩm">Danh sách Sản phẩm</a>
+</div>');
+}
 ?>
 
