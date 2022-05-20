@@ -308,6 +308,26 @@ if (isset($_GET['act'])) {
     <a href="./admin.php?tmuc=Đổi mật khẩu">Quay lại</a>
 </div>');
 }
+
+if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'tkmktc')&&($_GET['dk'] == 'notcorrect'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Mật khẩu cũ không chính xác</h2>
+    
+    <a href="./admin.php?tmuc=Đổi mật khẩu">Quay lại</a>
+</div>');
+}
+
+
+if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'tkmktc')&&($_GET['dk'] == 'notvalid'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Mật khẩu xác thực không trùng khớp</h2>
+    
+    <a href="./admin.php?tmuc=Đổi mật khẩu">Quay lại</a>
+</div>');
+}
+
 if (isset($_GET['act'])) {
     if (($_GET['act'] == 'addsptc')&&($_GET['dk'] == 'yes'))
     echo ('<div id="error-notify" class="box-content">

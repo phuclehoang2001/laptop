@@ -298,12 +298,21 @@
     }
     if (isset($_POST['btntkmk'])) {
         if (isset($_POST['matkhaumoi']))
-            if ($_POST['matkhaumoi'] != '') {
-                $result1 = mysqli_query($con, "UPDATE `taikhoang` SET `pass` = '" . $_POST['matkhaumoi'] . "' WHERE `username` = '" . $_GET['user'] . "'");
-                var_dump($result1);
-                if ($result1)
-                    header("location:./admin.php?act=tkmktc&dk=yes");
-                else header("location:./admin.php?act=tkmktc&dk=no");
+            if ($_POST['matkhaucu'] != '' && $_POST['matkhaumoi'] !='' && $_POST['xacthucmkmoi']!='') {
+                $checkpass = mysqli_query($con, "SELECT pass FROM `taikhoang` WHERE username='".$_GET['user']."'");
+                $row = mysqli_fetch_array($checkpass);
+                if($_POST['matkhaucu'] !=$row['pass']){
+                    header("location:./admin.php?act=tkmktc&dk=notcorrect");
+                }
+                else if($_POST['matkhaumoi']!=$_POST['xacthucmkmoi'])
+                    header("location:./admin.php?act=tkmktc&dk=notvalid");
+                else {
+                    $result1 = mysqli_query($con, "UPDATE `taikhoang` SET `pass` = '" . $_POST['matkhaumoi'] . "' WHERE `username` = '" . $_GET['user'] . "'");
+                    var_dump($result1);
+                    if ($result1)
+                        header("location:./admin.php?act=tkmktc&dk=yes");  
+                    else header("location:./admin.php?act=tkmktc&dk=no");
+                }   
             } else header("location:./admin.php?act=tkmktc&dk=no");
     }
     if (isset($_POST['btntkadd'])) {
