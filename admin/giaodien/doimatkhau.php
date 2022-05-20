@@ -10,22 +10,23 @@
     $taikhoang = $result->fetch_assoc();
 ?>
 <h1>Đổi mật khẩu</h1>
-<form name="taikhoang-formsua" method="POST" action="./xulythem.php?user=<?= $_SESSION['user']?>" enctype="multipart/form-data">
+<form name="taikhoang-formsua" class ="form-group" method="POST" action="./xulythem.php?user=<?= $_SESSION['user']?>" enctype="multipart/form-data">
     
     <div class="clear-both"></div>
     <div class="box-content row">
         <label class="col-lg-2">Mật khẩu cũ: </label>
-        <input class="col-lg-3"type="text" name="matkhaucu" value=""/>
+        <input class="col-lg-3"type="password" name="matkhaucu" value=""/>
     </div>
     <div class="box-content row">
         <label class="col-lg-2">Mật khẩu mới:</label>
-        <input class="col-lg-3"type="text" name="matkhaumoi" value=""/>
+        <input class="col-lg-3"type="password" name="matkhaumoi" value=""/>
     </div>
     <div class="box-content row">
         <label class="col-lg-2">Nhập lại mật khẩu mới: </label>
-        <input class="col-lg-3"type="text" name="xacthucmkmoi" value=""/>
+        <input class="col-lg-3"type="password" name="xacthucmkmoi" value=""/>
+    </div>
+    <div>  
+        <button name="btntkmk" class="btn btn-primary" type="submit" title="Lưu mật khẩu">Lưu</button>
     </div>
     
-    
-    <button name="btntkmk" class="btn btn-primary" type="submit" title="Lưu mật khẩu">Lưu</button>
 </form>
