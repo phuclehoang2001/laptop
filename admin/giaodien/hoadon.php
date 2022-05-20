@@ -85,8 +85,18 @@ if (!empty($_SESSION['nguoidung'])) {
                                     <td><?php if ($row['da_nhan_tien'] == "1") echo "Đã trả tiền";
                                         else echo "Chưa trả tiền"; ?></td>
                                     <td><a href="./admin.php?act=cthoadon&id=<?= $row['idhoadon'] ?>">Xem chi tiết</a></td>
-                                    <td><a href="./xulythem.php?act=xnhd&id=<?= $row['idhoadon'] ?>&cuser=<?= $row['ten_nv'] ?>&iduser=<?= $_SESSION['idnhanvien'] ?>" style="text-decoration: none;"><i class="fas fa-check"></i></a></td>
-                                    <td><a href="./xulythem.php?act=xnhd_dnt&id=<?= $row['idhoadon'] ?>&cuser=<?= $row['nhanvien_nhantien'] ?>&iduser=<?= $_SESSION['tennhanvien'] ?>&ttgiaohang=<?= $row['trang_thai']?>" style="text-decoration: none;"><i class="fas fa-check"></i></a></td>
+                                    <td>
+                                        <?php
+                                            if($row['trang_thai'] == "1")echo '<i class="fas fa-check"></i></td>';
+                                            else echo '<a href="./xulythem.php?act=xnhd&id='.$row['idhoadon'].'&cuser='. $row['ten_nv'] .'&iduser='. $_SESSION['idnhanvien'].'"'.' style="text-decoration: none;"><i class="fas fa-check"></i></a></td>';
+                                        ?>
+                                        
+                                    <td>
+                                    <?php
+                                            if($row['da_nhan_tien'] == "1")echo '<i class="fas fa-check"></i></td>';
+                                            else echo '<a href="./xulythem.php?act=xnhd_dnt&id='.$row['idhoadon'].'&cuser='. $row['nhanvien_nhantien'] .'&iduser='. $_SESSION['tennhanvien'].'&ttgiaohang='. $row['trang_thai'].'"'.' style="text-decoration: none;"><i class="fas fa-check"></i></a></td>';
+                                        ?>
+                                       
                                     <td><?php if ($row['trang_thai'] == "0") { ?><a href="./admin.php?act=xoahd&id=<?= $row['idhoadon'] ?>" style="text-decoration: none;" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fas fa-trash-alt"></i></a><?php } ?> </td>
                                     <div class="clear-both"></div>
                                 </tr>
