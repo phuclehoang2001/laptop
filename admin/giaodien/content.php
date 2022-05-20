@@ -372,5 +372,53 @@ if (isset($_GET['act'])) {
     <a href="./admin.php?tmuc=Danh mục">Danh sách Danh mục</a>
 </div>');
 }
+if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'addsptrungten')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Tên sản phẩm bị trùng, vui lòng chọn tên khác</h2>
+    
+    <a href="./admin.php?tmuc=Sản phẩm">Danh sách Sản phẩm</a>
+</div>');
+}
+if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'addtltrungten')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Tên thể loại bị trùng, vui lòng chọn tên khác</h2>
+    
+    <a href="./admin.php?tmuc=Thể loại">Danh sách Thể loại</a>
+</div>');
+}
+if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'addtktrungten')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Tên tài khoản bị trùng, vui lòng chọn tên khác</h2>
+    
+    <a href="./admin.php?tmuc=Tài khoản">Danh sách Tài khoản</a>
+</div>');
+}
+if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'adddmtrungten')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Tên quyền bị trùng, vui lòng chọn tên khác</h2>
+    
+    <a href="./admin.php?tmuc=Danh mục">Danh sách Quyền</a>
+</div>');
+}
+if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'addncctrungten')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Tên nhà cung cấp bị trùng, vui lòng chọn tên khác</h2>
+    
+    <a href="./admin.php?tmuc=Nhà cung cấp">Danh sách Nhà cung cấp</a>
+</div>');
+}
+if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'addnvtrungemail')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Email nhân viên bị trùng, vui lòng chọn email khác</h2>
+    
+    <a href="./admin.php?tmuc=Nhân viên">Danh sách Nhân viên</a>
+</div>');
+}
 ?>
 
