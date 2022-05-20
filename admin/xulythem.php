@@ -65,7 +65,12 @@
                                                         $image_url = $path1 . $name; // Đường dẫn ảnh lưu vào cơ sở dữ liệu
                                                         // Insert ảnh vào cơ sở dữ liệu
                                                         $sql1 = "INSERT INTO `sanpham` (`ten_sp`, `hinh_anh`, `don_gia`, `noi_dung`,`so_luong`,`id_the_loai`,`id_nha_cc`,`trangthai`) VALUES ('$namei','$image_url', " . str_replace('.', '', $price) . ", '$content',0,'$idtl','$idncc',0);";
-                                                        $result1 = mysqli_query($conn, $sql1);
+                                                        try {
+                                                            $result1 = mysqli_query($conn, $sql1);
+                                                        } catch (Exception $e) {
+                                                            header("location:./admin.php?act=addsptrungten&dk=no");
+                                                            exit;
+                                                        }
                                                         if (isset($_FILES['gallery']))
                                                             if ($_FILES['gallery'] != '') {
                                                                 $uploadedFiles = $_FILES['gallery'];
@@ -181,7 +186,12 @@
             if ($_POST['name'] != '') {
                 $namei = $_POST['name'];
                 $sql = "INSERT INTO `theloai`(`ten_tl`) VALUES ('$namei')";
-                $result = mysqli_query($con, $sql);
+                try {
+                    $result = mysqli_query($con, $sql);
+                } catch (Exception $e) {
+                    header("location:./admin.php?act=addtltrungten&dk=no");
+                    exit;
+                }
                 if ($result)
                     header("location:./admin.php?act=addtltc&dk=yes");
                 else header("location:./admin.php?act=addtltc&dk=no");
@@ -207,7 +217,12 @@
                                 if (isset($_POST['sdt']))
                                     if ($_POST['sdt'] != '') {
                                         $sql = "INSERT INTO `nhacungcap`(`ten_ncc`, `email`, `web_site`,`phone`) VALUES ('" . $_POST['name'] . "','" . $_POST['email'] . "','" . $_POST['website'] . "','" . $_POST['sdt'] . "')";
-                                        $result = execute($sql);
+                                        try {
+                                            $result = execute($sql);
+                                        } catch (Exception $e) {
+                                            header("location:./admin.php?act=addncctrungten&dk=no");
+                                            exit;
+                                        }
                                         header("location:./admin.php?act=nccaddtc&dk=yes");
                                     } else header("location:./admin.php?act=nccaddtc&dk=no");
                             } else header("location:./admin.php?act=nccaddtc&dk=no");
@@ -240,18 +255,23 @@
             if ($_POST['name'] != '') {
                 // if (isset($_POST['tendangnhap'])) {
                 //     if ($_POST['tendangnhap'] != '') {
-                        if (isset($_POST['sdt']))
-                            if ($_POST['sdt'] != '') {
-                                if (isset($_POST['email']))
-                                    if ($_POST['email'] != '') {
-                                        if ($_POST['tendangnhap'] != '') $tendangnhap=null;
-                                        $sql1 = "INSERT INTO `nhanvien`(`ten_nv`,`ten_dangnhap`,`email`,`phone`) VALUES ('" . $_POST['name'] . "','" . $_POST['tendangnhap'] . "','" . $_POST['email'] . "','" . $_POST['sdt'] . "')";
-                                        $result = mysqli_query($con, $sql1);
-                                        if ($result)
-                                            header("location:./admin.php?act=addnvtc&dk=yes");
-                                        else header("location:./admin.php?act=addnvtc&dk=no");
-                                    } else header("location:./admin.php?act=addnvtc&dk=no");
+                if (isset($_POST['sdt']))
+                    if ($_POST['sdt'] != '') {
+                        if (isset($_POST['email']))
+                            if ($_POST['email'] != '') {
+                                if ($_POST['tendangnhap'] != '') $tendangnhap = null;
+                                $sql1 = "INSERT INTO `nhanvien`(`ten_nv`,`ten_dangnhap`,`email`,`phone`) VALUES ('" . $_POST['name'] . "','" . $_POST['tendangnhap'] . "','" . $_POST['email'] . "','" . $_POST['sdt'] . "')";
+                                try {
+                                    $result = mysqli_query($con, $sql1);
+                                } catch (Exception $e) {
+                                    header("location:./admin.php?act=addnvtrungemail&dk=no");
+                                    exit;
+                                }
+                                if ($result)
+                                    header("location:./admin.php?act=addnvtc&dk=yes");
+                                else header("location:./admin.php?act=addnvtc&dk=no");
                             } else header("location:./admin.php?act=addnvtc&dk=no");
+                    } else header("location:./admin.php?act=addnvtc&dk=no");
                 //     } else header("location:./admin.php?act=addnvtc&dk=no");
                 // } else header("location:./admin.php?act=addnvtc&dk=no");
             } else header("location:./admin.php?act=addnvtc&dk=no");
@@ -263,16 +283,16 @@
                     if ($_POST['sdt'] != '') {
                         // if (isset($_POST['tendangnhap']))
                         //     if ($_POST['tendangnhap'] != '') {
-                                if (isset($_POST['email']))
-                                    if ($_POST['email'] != '') {
-                                        if ($_POST['tendangnhap'] != '') $tendangnhap=null;
-                                        $con = mysqli_connect("localhost", "root", "", "laptopdb");
-                                        $result1 = mysqli_query($con, "UPDATE `nhanvien` SET `ten_nv` = '" . $_POST['name'] . "',`email` = '" . $_POST['email'] . "',`phone` = '" . $_POST['sdt'] . "',`ten_dangnhap` = '" . $_POST['tendangnhap'] . "' WHERE `nhanvien`.`id` = " . $_GET['id'] . " ");
-                                        if ($result1)
-                                            header("location:./admin.php?act=suanvtc&dk=yes");
-                                        else header("location:./admin.php?act=suanvtc&dk=no");
-                                    } else header("location:./admin.php?act=suanvtc&dk=no");
-                            // } else header("location:./admin.php?act=suanvtc&dk=no");
+                        if (isset($_POST['email']))
+                            if ($_POST['email'] != '') {
+                                if ($_POST['tendangnhap'] != '') $tendangnhap = null;
+                                $con = mysqli_connect("localhost", "root", "", "laptopdb");
+                                $result1 = mysqli_query($con, "UPDATE `nhanvien` SET `ten_nv` = '" . $_POST['name'] . "',`email` = '" . $_POST['email'] . "',`phone` = '" . $_POST['sdt'] . "',`ten_dangnhap` = '" . $_POST['tendangnhap'] . "' WHERE `nhanvien`.`id` = " . $_GET['id'] . " ");
+                                if ($result1)
+                                    header("location:./admin.php?act=suanvtc&dk=yes");
+                                else header("location:./admin.php?act=suanvtc&dk=no");
+                            } else header("location:./admin.php?act=suanvtc&dk=no");
+                        // } else header("location:./admin.php?act=suanvtc&dk=no");
                     } else header("location:./admin.php?act=suanvtc&dk=no");
             } else header("location:./admin.php?act=suanvtc&dk=no");
     }
@@ -294,7 +314,12 @@
                         if (isset($_POST['name']))
                             if ($_POST['name'] != '') {
                                 $sql2 = "INSERT INTO `taikhoang`(`id_quyen`,`username`,`pass`,`fullname`) VALUES (3,'" . $_POST['tendangnhap'] . "','" . $_POST['matkhau'] . "','" . $_POST['name'] . "')";
-                                $result1 = mysqli_query($con, $sql2);
+                                try {
+                                    $result1 = mysqli_query($con, $sql2);
+                                } catch (Exception $e) {
+                                    header("location:./admin.php?act=addtktrungten&dk=no");
+                                    exit;
+                                }
                                 if ($result1)
                                     header("location:./admin.php?act=addtktc&dk=yes");
                                 else header("location:./admin.php?act=addtktc&dk=no");
@@ -309,10 +334,10 @@
                 if (isset($_POST['trangthai']) == NULL) $trangthai = 1;
                 var_dump(intval($_POST['quyen']));
                 // if ($_POST['quyen'] == '1' || $_POST['quyen'] == '2' || $_POST['quyen'] == '3' || $_POST['quyen'] == '4') {
-                    $result1 = mysqli_query($con, "UPDATE `taikhoang` SET `id_quyen` = '" . $_POST['quyen'] . "', `trang_thai` = ' " . $trangthai . "' WHERE `username` = '" . $_GET['id'] . "'");
-                    if ($result1)
-                        header("location:./admin.php?act=suatktc&dk=yes");
-                    else header("location:./admin.php?act=suatktc&dk=no");
+                $result1 = mysqli_query($con, "UPDATE `taikhoang` SET `id_quyen` = '" . $_POST['quyen'] . "', `trang_thai` = ' " . $trangthai . "' WHERE `username` = '" . $_GET['id'] . "'");
+                if ($result1)
+                    header("location:./admin.php?act=suatktc&dk=yes");
+                else header("location:./admin.php?act=suatktc&dk=no");
                 // } else header("location:./admin.php?act=suatktc&dk=no");
             } else header("location:./admin.php?act=suatktc&dk=no");
     }
@@ -380,19 +405,25 @@
     if (isset($_POST['btndmadd'])) {
         $data = $_POST;
         $inserts = "";
-        if(isset($data['row'])){
-        $them = mysqli_query($con, "INSERT INTO `quyen`(`ten_quyen`) VALUES ('" . $_POST['tendanhmuc'] . "')");
-        $id_quyen = mysqli_insert_id($con);
-        foreach ($data['row'] as $insertid) {
-            $inserts .= !empty($inserts) ? "," : "";
-            $inserts .= "(" . $id_quyen . "," . $insertid . ")";var_dump($data['row']);
-        }
-        
-        $inserted = mysqli_query($con, "INSERT INTO `quyendahmuc`(`id_quyen`, `id_danhmuc`) VALUES " . $inserts . "");
-        if($inserted) header("location:./admin.php?act=btndmaddtc&dk=yes");
-        else header("location:./admin.php?act=btndmaddtc&dk=no");
-        }else header("location:./admin.php?act=btndmaddtc&dk=no");
-        
+        if (isset($data['row'])) {
+            try {
+                $them = mysqli_query($con, "INSERT INTO `quyen`(`ten_quyen`) VALUES ('" . $_POST['tendanhmuc'] . "')");
+            } catch (Exception $e) {
+                header("location:./admin.php?act=adddmtrungten&dk=no");
+                exit;
+            }
+            $id_quyen = mysqli_insert_id($con);
+            foreach ($data['row'] as $insertid) {
+                $inserts .= !empty($inserts) ? "," : "";
+                $inserts .= "(" . $id_quyen . "," . $insertid . ")";
+                var_dump($data['row']);
+            }
+
+            $inserted = mysqli_query($con, "INSERT INTO `quyendahmuc`(`id_quyen`, `id_danhmuc`) VALUES " . $inserts . "");
+            if ($inserted) header("location:./admin.php?act=btndmaddtc&dk=yes");
+            else header("location:./admin.php?act=btndmaddtc&dk=no");
+        } else header("location:./admin.php?act=btndmaddtc&dk=no");
+
         // $deleted=mysqli_query($con,"DELETE FROM `quyendahmuc` WHERE `id_quyen`=1");
         // foreach($data['row1'] as $insertid){
         //     $inserts .= !empty($inserts) ? "," : "";
@@ -404,23 +435,23 @@
     if (isset($_POST['btndmsua'])) {
         $data = $_POST;
         $inserts = "";
-        if(isset($_POST['tendanhmuc']))
-        if($_POST['tendanhmuc']!=''){
-            if(isset($data['row'])){
-        $sua = mysqli_query($con, "UPDATE `quyen` SET `ten_quyen`='" . $_POST['tendanhmuc'] . "' WHERE `id`=".$_GET['idq']."");
-        $deleted=mysqli_query($con,"DELETE FROM `quyendahmuc` WHERE `id_quyen`=".$_GET['idq']."");
-        foreach ($data['row'] as $insertid) {
-            $inserts .= !empty($inserts) ? "," : "";
-            $inserts .= "(".$_GET['idq']."," . $insertid . ")";var_dump($inserts);
-        }
-        
-        $inserted = mysqli_query($con, "INSERT INTO `quyendahmuc`(`id_quyen`, `id_danhmuc`) VALUES " . $inserts . "");
-        var_dump($inserted);
-        if($inserted) header("location:./admin.php?act=btndmsuatc&dk=yes");
-        else header("location:./admin.php?act=btndmsuatc&dk=no");
-        }else header("location:./admin.php?act=btndmsuatc&dk=no");
-        }else header("location:./admin.php?act=btndmsuatc&dk=no");
-        
+        if (isset($_POST['tendanhmuc']))
+            if ($_POST['tendanhmuc'] != '') {
+                if (isset($data['row'])) {
+                    $sua = mysqli_query($con, "UPDATE `quyen` SET `ten_quyen`='" . $_POST['tendanhmuc'] . "' WHERE `id`=" . $_GET['idq'] . "");
+                    $deleted = mysqli_query($con, "DELETE FROM `quyendahmuc` WHERE `id_quyen`=" . $_GET['idq'] . "");
+                    foreach ($data['row'] as $insertid) {
+                        $inserts .= !empty($inserts) ? "," : "";
+                        $inserts .= "(" . $_GET['idq'] . "," . $insertid . ")";
+                        var_dump($inserts);
+                    }
+
+                    $inserted = mysqli_query($con, "INSERT INTO `quyendahmuc`(`id_quyen`, `id_danhmuc`) VALUES " . $inserts . "");
+                    var_dump($inserted);
+                    if ($inserted) header("location:./admin.php?act=btndmsuatc&dk=yes");
+                    else header("location:./admin.php?act=btndmsuatc&dk=no");
+                } else header("location:./admin.php?act=btndmsuatc&dk=no");
+            } else header("location:./admin.php?act=btndmsuatc&dk=no");
     }
     ?>
 </body>
