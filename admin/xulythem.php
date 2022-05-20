@@ -99,7 +99,7 @@
                                                             header('location:admin.php?act=addsptc&dk=yes');
                                                             // }else header("location:./admin.php?act=addsptc&dk=no");
                                                         } else header("location:./admin.php?act=addsptc&dk=no");
-                                                    }
+                                                    }else header("location:./admin.php?act=addspanh&dk=no");
                                                 }
                                             } else header("location:./admin.php?act=addsptc&dk=no");
                                     } else header("location:./admin.php?act=addsptc&dk=no");

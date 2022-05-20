@@ -26,7 +26,7 @@ $sql = "INSERT INTO `sanpham` (`id`, `ten_sp`, `hinh_anh`, `don_gia`, `noi_dung`
     </div>
     <div class="wrap-field">
         <label>Giá sản phẩm: </label>
-        <input class="form-control" type="number" name="price" value="" />
+        <input class="form-control" type="number" name="price" min="3000000" max="50000000"value="" />
         <div class="clear-both"></div>
     </div>
     <div class="wrap-field">
