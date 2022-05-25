@@ -72,17 +72,17 @@ if (isset($_SESSION['cart'])) {
 			<div class="modal-body">
 				<div class="wrap-field">
 					<label>Tên cơ sở: </label>
-					<input class="form-control" type="text" name="namenv" value="Công ty SWAG" />
+					<input class="form-control" type="text" name="namenv" value="Công ty SWAG" required/>
 					<div class="clear-both"></div>
 				</div>
 				<div class="wrap-field">
 					<label>Địa chỉ: </label>
-					<input class="form-control" type="text" name="diachi" value="173 An Dương Vương" />
+					<input class="form-control" type="text" name="diachi" placeholder="173 An Dương Vương" title="Nhập số nhà và tên đường VD: 173 An Dương Vương" pattern="\d{1,3}.?\d{0,3}[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]" value="173 An Dương Vương" required/>
 					<div class="clear-both"></div>
 				</div>
 				<div class="wrap-field">
 					<label>SĐT: </label>
-					<input class="form-control" type="tel" name="sdt" pattern="[0]{1}[0-9]{9}" value="0794290037" placeholder="VD: 0123456789" />
+					<input class="form-control" type="tel" name="sdt" pattern="[0]{1}[0-9]{9}" required value="0794290037" placeholder="VD: 0123456789" />
 					<div class="clear-both"></div>
 				</div>
 				<div class="wrap-field">

@@ -14,17 +14,17 @@
         <div class="modal-body">
             <div class="wrap-field">
                 <label>Tài khoản: </label>
-                <input class="form-control" type="text" name="tendangnhap" value="" />
+                <input class="form-control" type="text" name="tendangnhap" value="" required/>
                 <div class="clear-both"></div>
             </div>
             <div class="wrap-field">
                 <label>Mật khẩu: </label>
-                <input class="form-control"type="text" name="matkhau" value="" />
+                <input class="form-control"type="text" name="matkhau" value="" minlength="6" required/>
                 <div class="clear-both"></div>
             </div>
             <div class="wrap-field">
                 <label>Họ và tên: </label>
-                <input class="form-control"type="text" name="name" value="" />
+                <input class="form-control"type="text" name="name" value=""required />
                 <div class="clear-both"></div>
             </div>
         </div>
