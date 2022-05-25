@@ -401,7 +401,23 @@ if (isset($_GET['act'])) {
 </div>');
 }
 if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'suasptrungten')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Tên sản phẩm bị trùng, vui lòng chọn tên khác</h2>
+    
+    <a href="./admin.php?tmuc=Sản phẩm">Danh sách Sản phẩm</a>
+</div>');
+}
+if (isset($_GET['act'])) {
     if (($_GET['act'] == 'addtltrungten')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Tên thể loại bị trùng, vui lòng chọn tên khác</h2>
+    
+    <a href="./admin.php?tmuc=Thể loại">Danh sách Thể loại</a>
+</div>');
+}
+if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'suatltrungten')&&($_GET['dk'] == 'no'))
     echo ('<div id="error-notify" class="box-content">
     <h2>Tên thể loại bị trùng, vui lòng chọn tên khác</h2>
     
@@ -425,6 +441,14 @@ if (isset($_GET['act'])) {
 </div>');
 }
 if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'suadmtrungten')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Tên quyền bị trùng, vui lòng chọn tên khác</h2>
+    
+    <a href="./admin.php?tmuc=Danh mục">Danh sách Quyền</a>
+</div>');
+}
+if (isset($_GET['act'])) {
     if (($_GET['act'] == 'addncctrungten')&&($_GET['dk'] == 'no'))
     echo ('<div id="error-notify" class="box-content">
     <h2>Tên nhà cung cấp bị trùng, vui lòng chọn tên khác</h2>
@@ -441,6 +465,14 @@ if (isset($_GET['act'])) {
 </div>');
 }
 if (isset($_GET['act'])) {
+    if (($_GET['act'] == 'suanvtrungemail')&&($_GET['dk'] == 'no'))
+    echo ('<div id="error-notify" class="box-content">
+    <h2>Email nhân viên bị trùng, vui lòng chọn email khác</h2>
+    
+    <a href="./admin.php?tmuc=Nhân viên">Danh sách Nhân viên</a>
+</div>');
+}
+if (isset($_GET['act'])) {
     if (($_GET['act'] == 'addspanh')&&($_GET['dk'] == 'no'))
     echo ('<div id="error-notify" class="box-content">
     <h2>Vui lòng chọn ảnh loại JPEG,PNG,GIF</h2>
@@ -448,5 +480,6 @@ if (isset($_GET['act'])) {
     <a href="./admin.php?tmuc=Sản phẩm">Danh sách Sản phẩm</a>
 </div>');
 }
+
 ?>
 

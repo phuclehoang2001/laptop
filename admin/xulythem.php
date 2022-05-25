@@ -99,7 +99,7 @@
                                                             header('location:admin.php?act=addsptc&dk=yes');
                                                             // }else header("location:./admin.php?act=addsptc&dk=no");
                                                         } else header("location:./admin.php?act=addsptc&dk=no");
-                                                    }else header("location:./admin.php?act=addspanh&dk=no");
+                                                    } else header("location:./admin.php?act=addspanh&dk=no");
                                                 }
                                             } else header("location:./admin.php?act=addsptc&dk=no");
                                     } else header("location:./admin.php?act=addsptc&dk=no");
@@ -150,7 +150,12 @@
                                                         // Insert ảnh vào cơ sở dữ liệu
                                                     }
                                                 }
-                                                $result1 = mysqli_query($con, "UPDATE `sanpham` SET `ten_sp` = '" . $_POST['name'] . "',`hinh_anh` =  '$image_url', `don_gia` = " . str_replace('.', '', $_POST['price']) . ", `noi_dung` = '" . $_POST['content'] . "', `ngay_sua` = " . time() . ",`id_the_loai` =" . $_POST['idtl'] . ",`id_nha_cc`=" . $_POST['idncc'] . ",`trangthai`=" . $trangthai . " WHERE `sanpham`.`id` = " . $_GET['id']);
+                                                try {
+                                                    $result1 = mysqli_query($con, "UPDATE `sanpham` SET `ten_sp` = '" . $_POST['name'] . "',`hinh_anh` =  '$image_url', `don_gia` = " . str_replace('.', '', $_POST['price']) . ", `noi_dung` = '" . $_POST['content'] . "', `ngay_sua` = " . time() . ",`id_the_loai` =" . $_POST['idtl'] . ",`id_nha_cc`=" . $_POST['idncc'] . ",`trangthai`=" . $trangthai . " WHERE `sanpham`.`id` = " . $_GET['id']);
+                                                } catch (Exception $e) {
+                                                    header("location:./admin.php?act=suasptrungten&dk=no");
+                                                    exit;
+                                                }
                                                 if (!empty($galleryImages)) {
                                                     $product_id = ($_GET['act'] == 'sua' && !empty($_GET['id'])) ? $_GET['id'] : $con->insert_id;
                                                     $insertValues = "";
@@ -201,7 +206,12 @@
         if (isset($_POST['name']))
             if ($_POST['name'] != '') {
                 $con = mysqli_connect("localhost", "root", "", "laptopdb");
-                $result1 = mysqli_query($con, "UPDATE `theloai` SET `ten_tl` = '" . $_POST['name'] . "'WHERE `theloai`.`id` = " . $_GET['id'] . " ");
+                try {
+                    $result1 = mysqli_query($con, "UPDATE `theloai` SET `ten_tl` = '" . $_POST['name'] . "'WHERE `theloai`.`id` = " . $_GET['id'] . " ");
+                } catch (Exception $e) {
+                    header("location:./admin.php?act=suatltrungten&dk=no");
+                    exit;
+                }
                 if ($result1)
                     header("location:./admin.php?act=suatltc&dk=yes");
                 else header("location:./admin.php?act=suatltc&dk=no");
@@ -287,7 +297,12 @@
                             if ($_POST['email'] != '') {
                                 if ($_POST['tendangnhap'] != '') $tendangnhap = null;
                                 $con = mysqli_connect("localhost", "root", "", "laptopdb");
-                                $result1 = mysqli_query($con, "UPDATE `nhanvien` SET `ten_nv` = '" . $_POST['name'] . "',`email` = '" . $_POST['email'] . "',`phone` = '" . $_POST['sdt'] . "',`ten_dangnhap` = '" . $_POST['tendangnhap'] . "' WHERE `nhanvien`.`id` = " . $_GET['id'] . " ");
+                                try {
+                                    $result1 = mysqli_query($con, "UPDATE `nhanvien` SET `ten_nv` = '" . $_POST['name'] . "',`email` = '" . $_POST['email'] . "',`phone` = '" . $_POST['sdt'] . "',`ten_dangnhap` = '" . $_POST['tendangnhap'] . "' WHERE `nhanvien`.`id` = " . $_GET['id'] . " ");
+                                } catch (Exception $e) {
+                                    header("location:./admin.php?act=suanvtrungemail&dk=no");
+                                    exit;
+                                }
                                 if ($result1)
                                     header("location:./admin.php?act=suanvtc&dk=yes");
                                 else header("location:./admin.php?act=suanvtc&dk=no");
@@ -298,21 +313,20 @@
     }
     if (isset($_POST['btntkmk'])) {
         if (isset($_POST['matkhaumoi']))
-            if ($_POST['matkhaucu'] != '' && $_POST['matkhaumoi'] !='' && $_POST['xacthucmkmoi']!='') {
-                $checkpass = mysqli_query($con, "SELECT pass FROM `taikhoang` WHERE username='".$_GET['user']."'");
+            if ($_POST['matkhaucu'] != '' && $_POST['matkhaumoi'] != '' && $_POST['xacthucmkmoi'] != '') {
+                $checkpass = mysqli_query($con, "SELECT pass FROM `taikhoang` WHERE username='" . $_GET['user'] . "'");
                 $row = mysqli_fetch_array($checkpass);
-                if($_POST['matkhaucu'] !=$row['pass']){
+                if ($_POST['matkhaucu'] != $row['pass']) {
                     header("location:./admin.php?act=tkmktc&dk=notcorrect");
-                }
-                else if($_POST['matkhaumoi']!=$_POST['xacthucmkmoi'])
+                } else if ($_POST['matkhaumoi'] != $_POST['xacthucmkmoi'])
                     header("location:./admin.php?act=tkmktc&dk=notvalid");
                 else {
                     $result1 = mysqli_query($con, "UPDATE `taikhoang` SET `pass` = '" . $_POST['matkhaumoi'] . "' WHERE `username` = '" . $_GET['user'] . "'");
                     var_dump($result1);
                     if ($result1)
-                        header("location:./admin.php?act=tkmktc&dk=yes");  
+                        header("location:./admin.php?act=tkmktc&dk=yes");
                     else header("location:./admin.php?act=tkmktc&dk=no");
-                }   
+                }
             } else header("location:./admin.php?act=tkmktc&dk=no");
     }
     if (isset($_POST['btntkadd'])) {
@@ -481,7 +495,12 @@
         if (isset($_POST['tendanhmuc']))
             if ($_POST['tendanhmuc'] != '') {
                 if (isset($data['row'])) {
-                    $sua = mysqli_query($con, "UPDATE `quyen` SET `ten_quyen`='" . $_POST['tendanhmuc'] . "' WHERE `id`=" . $_GET['idq'] . "");
+                    try {
+                        $sua = mysqli_query($con, "UPDATE `quyen` SET `ten_quyen`='" . $_POST['tendanhmuc'] . "' WHERE `id`=" . $_GET['idq'] . "");
+                    } catch (Exception $e) {
+                        header("location:./admin.php?act=suadmtrungten&dk=no");
+                        exit;
+                    }
                     $deleted = mysqli_query($con, "DELETE FROM `quyendahmuc` WHERE `id_quyen`=" . $_GET['idq'] . "");
                     foreach ($data['row'] as $insertid) {
                         $inserts .= !empty($inserts) ? "," : "";
