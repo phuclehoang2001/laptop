@@ -12,7 +12,7 @@
 <div class="modal-body">
     <div class="box-content">
         <label>Tên thể loại: </label>
-        <input class="form-control"type="text" name="name" value="" />
+        <input class="form-control"type="text" name="name" value="" required/>
     </div>
     <div class="modal-footer">
         <input name="btntladd"class="btn btn-primary" type="submit" title="Lưu thể loại" value="Lưu" />
