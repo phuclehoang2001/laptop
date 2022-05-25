@@ -77,7 +77,7 @@ if (isset($_SESSION['cart'])) {
 				</div>
 				<div class="wrap-field">
 					<label>Địa chỉ: </label>
-					<input class="form-control" type="text" name="diachi" placeholder="173 An Dương Vương" title="Nhập số nhà và tên đường VD: 173 An Dương Vương" pattern="\d{1,3}.?\d{0,3}[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]" value="173 An Dương Vương" required/>
+					<input class="form-control" type="text" name="diachi" placeholder="173 An Dương Vương" title="Nhập số nhà và tên đường VD: 173 An Dương Vương" pattern="\d{1,3}.?\d{0,3}([a-zA-Z0-9ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)" value="173 An Dương Vương" required/>
 					<div class="clear-both"></div>
 				</div>
 				<div class="wrap-field">
