@@ -21,18 +21,18 @@ $sql = "INSERT INTO `sanpham` (`id`, `ten_sp`, `hinh_anh`, `don_gia`, `noi_dung`
     <div class="modal-body">
     <div class="wrap-field">
         <label>Tên sản phẩm: </label>
-        <input class="form-control" type="text" name="name" value="" />
+        <input class="form-control" type="text" name="name" value="" required />
         <div class="clear-both"></div>
     </div>
     <div class="wrap-field">
         <label>Giá sản phẩm: </label>
-        <input class="form-control" type="number" name="price" min="3000000" max="50000000"value="" />
+        <input class="form-control" type="number" name="price" min="3000000" max="50000000"value="" required/>
         <div class="clear-both"></div>
     </div>
     <div class="wrap-field">
         <label>Ảnh đại diện: </label>
         <div class="wrap-field">
-            <input class="form-control" type="file" name="image" />
+            <input class="form-control" type="file" name="image" required/>
         </div>
         <div class="clear-both"></div>
     </div>
@@ -40,7 +40,7 @@ $sql = "INSERT INTO `sanpham` (`id`, `ten_sp`, `hinh_anh`, `don_gia`, `noi_dung`
         <label>Thư viện ảnh: </label>
         <div class="wrap-field"> 
             
-            <input class="form-control" multiple="" type="file" name="gallery[]" />
+            <input class="form-control" multiple="" type="file" name="gallery[]" required/>
         </div>
         <div class="clear-both"></div>
     </div>
@@ -56,7 +56,7 @@ $sql = "INSERT INTO `sanpham` (`id`, `ten_sp`, `hinh_anh`, `don_gia`, `noi_dung`
     </div>
     <div class="wrap-field">
         <label>Nội dung: </label>
-        <textarea class="form-control" name="content" id="product-content"></textarea>
+        <textarea class="form-control" name="content" id="product-content" required></textarea>
         <div class="clear-both"></div>
     </div>
     </div>

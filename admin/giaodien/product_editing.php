@@ -33,11 +33,11 @@ if (!empty($_GET['id'])) {
                 <div class="modal-body">
                     <div>
                         <label>Tên sản phẩm</label>
-                        <input class="form-control" type="text" name="name" value="<?= (!empty($product) ? $product['ten_sp'] : "") ?>" />
+                        <input class="form-control" type="text" name="name" required value="<?= (!empty($product) ? $product['ten_sp'] : "") ?>" />
                     </div>
                     <div>
                         <label>Giá sản phẩm</label>
-                        <input class="form-control" type="number" name="price"min="3000000" max="50000000" value="<?= (!empty($product) ? $product['don_gia'] : "") ?>" />
+                        <input class="form-control" type="number" name="price"min="3000000" max="50000000" required value="<?= (!empty($product) ? $product['don_gia'] : "") ?>" />
                     </div>
                     
                     <div>
@@ -58,7 +58,7 @@ if (!empty($_GET['id'])) {
                     </div>
                     <div>
                         <label>Nội dung</label>
-                        <textarea class="form-control"name="content" id="product-content" > <?= (!empty($product) ?$product['noi_dung']:"")?></textarea>
+                        <textarea class="form-control"name="content" id="product-content" required> <?= (!empty($product) ?$product['noi_dung']:"")?></textarea>
                     </div>
                     <div class="form-control">
                         <label>Ảnh đại diện: </label>
