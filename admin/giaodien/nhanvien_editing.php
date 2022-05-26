@@ -20,12 +20,12 @@ if (!empty($_GET['id'])) {
         <div class="modal-body">
             <div class="wrap-field">
                 <label>Tên nhân viên: </label>
-                <input class="form-control"type="text" name="name" value="<?= (!empty($nhanvien) ? $nhanvien['ten_nv'] : "") ?>" />
+                <input class="form-control"type="text" name="name" value="<?= (!empty($nhanvien) ? $nhanvien['ten_nv'] : "") ?>" required/>
                 <div class="clear-both"></div>
             </div>
             <div class="wrap-field">
                 <label>SĐT: </label>
-                <input class="form-control"type="tel" name="sdt" pattern="[0]{1}[0-9]{9}" placeholder="VD: 0123456789" value="<?= (!empty($nhanvien) ? $nhanvien['phone'] : "") ?>" />
+                <input class="form-control"type="tel" name="sdt" pattern="[0]{1}[0-9]{9}" placeholder="VD: 0123456789" value="<?= (!empty($nhanvien) ? $nhanvien['phone'] : "") ?>" required/>
                 <div class="clear-both"></div>
             </div>
             <div class="wrap-field">
@@ -37,7 +37,7 @@ if (!empty($_GET['id'])) {
             </div>
             <div class="wrap-field">
                 <label>Email: </label>
-                <input class="form-control" type="email" name="email" pattern="^[a-z0-9](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$" title="Vui lòng nhập email google VD: abc@gmail.com" value="<?= (!empty($nhanvien) ? $nhanvien['email'] : "") ?>" placeholder="VD: abc@gmail.com" />
+                <input class="form-control" type="email" name="email" pattern="^[a-z0-9](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$" title="Vui lòng nhập email google VD: abc@gmail.com" value="<?= (!empty($nhanvien) ? $nhanvien['email'] : "") ?>" placeholder="VD: abc@gmail.com" required/>
                 <div class="clear-both"></div>
             </div>
         </div>

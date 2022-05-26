@@ -16,7 +16,7 @@ $tk = mysqli_query($con, "SELECT `username` FROM `taikhoang` WHERE `taikhoang`.`
         <div class="modal-body">
             <div class="wrap-field">
                 <label>Tên nhân viên: </label>
-                <input class="form-control"type="text" name="name" value="" />
+                <input class="form-control"type="text" name="name" value="" required/>
                 <div class="clear-both"></div>
             </div>
             <div class="wrap-field">
@@ -26,12 +26,12 @@ $tk = mysqli_query($con, "SELECT `username` FROM `taikhoang` WHERE `taikhoang`.`
             </div>
             <div class="wrap-field">
                 <label>SĐT: </label>
-                <input class="form-control"type="tel" name="sdt" value="" pattern="[0]{1}[0-9]{9}" placeholder="VD: 0123456789" />
+                <input class="form-control"type="tel" name="sdt" value="" pattern="[0]{1}[0-9]{9}" placeholder="VD: 0123456789" required/>
                 <div class="clear-both"></div>
             </div>
             <div class="wrap-field">
                 <label>Email: </label>
-                <input class="form-control"type="email" name="email" value="" pattern="^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$" title="Vui lòng nhập email google VD: abc@gmail.com" placeholder="VD: abc@gmail.com" />
+                <input class="form-control"type="email" name="email" value="" pattern="^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$" title="Vui lòng nhập email google VD: abc@gmail.com" placeholder="VD: abc@gmail.com" required/>
                 <div class="clear-both"></div>
             </div>
         </div>
