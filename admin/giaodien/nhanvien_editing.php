@@ -37,7 +37,7 @@ if (!empty($_GET['id'])) {
             </div>
             <div class="wrap-field">
                 <label>Email: </label>
-                <input class="form-control" type="email" name="email" pattern="^[a-z0-9](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$" title="Vui lòng nhập email google VD: abc@gmail.com" value="<?= (!empty($nhanvien) ? $nhanvien['email'] : "") ?>" placeholder="VD: abc@gmail.com" required/>
+                <input class="form-control" type="email" name="email" pattern="^[a-z0-9](\.?[a-z0-9]){0,}@g(oogle)?mail\.com$" title="Vui lòng nhập email google VD: abc@gmail.com" value="<?= (!empty($nhanvien) ? $nhanvien['email'] : "") ?>" placeholder="VD: abc@gmail.com" required/>
                 <div class="clear-both"></div>
             </div>
         </div>

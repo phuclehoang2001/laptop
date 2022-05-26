@@ -31,7 +31,7 @@ $tk = mysqli_query($con, "SELECT `username` FROM `taikhoang` WHERE `taikhoang`.`
             </div>
             <div class="wrap-field">
                 <label>Email: </label>
-                <input class="form-control"type="email" name="email" value="" pattern="^[a-z0-9](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$" title="Vui lòng nhập email google VD: abc@gmail.com" placeholder="VD: abc@gmail.com" required/>
+                <input class="form-control"type="email" name="email" value="" pattern="^[a-z0-9](\.?[a-z0-9]){0,}@g(oogle)?mail\.com$" title="Vui lòng nhập email google VD: abc@gmail.com" placeholder="VD: abc@gmail.com" required/>
                 <div class="clear-both"></div>
             </div>
         </div>
