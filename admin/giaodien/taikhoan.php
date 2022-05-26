@@ -56,7 +56,8 @@
                                         <?php if($row['trang_thai']==0) echo "Bình thường"; else echo"Bị khóa";?>
                                     </td>
                                     <td><input type="submit" name="btntksua"value="Thay đổi"></td></form>                                
-                                    <td><?php if($row['trang_thai']==1){?><a href="admin.php?act=xoatk&id=<?= $row['username'] ?>" onclick="return confirm('Are you sure you want to delete this item?');">Xóa</a><?php }?></td>
+                                    <td><?php if($row['trang_thai']==1){?><a href="admin.php?act=xoatk&id=<?= $row['username'] ?>" style="text-decoration: none;"onclick="return confirm('Are you sure you want to delete this item?');"><i class="fas fa-trash-alt"></i>
+</a><?php }?></td>
                                     <div class="clear-both"></div>
                                 </tr>
                                 <?php } ?>
