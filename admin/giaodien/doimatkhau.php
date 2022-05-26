@@ -19,11 +19,11 @@
     </div>
     <div class="box-content row">
         <label class="col-lg-2">Mật khẩu mới:</label>
-        <input class="col-lg-3"type="password" name="matkhaumoi" value=""/>
+        <input class="col-lg-3"type="password" name="matkhaumoi" value="" minlength="6"/>
     </div>
     <div class="box-content row">
         <label class="col-lg-2">Nhập lại mật khẩu mới: </label>
-        <input class="col-lg-3"type="password" name="xacthucmkmoi" value=""/>
+        <input class="col-lg-3"type="password" name="xacthucmkmoi" value="" minlength="6"/>
     </div>
     <div>  
         <button name="btntkmk" class="btn btn-primary" type="submit" title="Lưu mật khẩu">Lưu</button>
