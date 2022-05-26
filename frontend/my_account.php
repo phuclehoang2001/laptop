@@ -90,21 +90,21 @@
                                 <tr>
                                     <td>Số điện thoại</td>
                                     <td><div class="form-group">
-								<input class="input" type="tel" id="sdt" name="tel" placeholder="Nhập số điện thoại" value="<?=$info['phone']?>" onchange="checkPhone();">
+								<input class="input" type="tel" id="sdt" name="tel" pattern="[0]{1}[0-9]{9}" title="VD: 0123456789" placeholder="Nhập số điện thoại" value="<?=$info['phone']?>" onchange="checkPhone();">
 								<div style="color:red;" id="thongbaoloisdt"></div>
 							</div></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
                                     <td><div class="form-group">
-								<input class="input" type="email" name="email" placeholder="Nhập Email" value="<?=$info['email']?>">
+								<input class="input" type="email" name="email" placeholder="Nhập Email"title="Vui lòng nhập email google VD: abc@gmail.com" pattern="^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$" value="<?=$info['email']?>">
 							</div></td>
                                 </tr>
                                 <tr>
                                     <td>Địa chỉ</td>
                                     <td>
                                     <div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Nhập địa chỉ" value="<?=$info['dia_chi']?>">
+								<input class="input" type="text" name="address" title="Nhập số nhà và tên đường VD: 173 An Dương Vương" pattern="\d{1,3}.?\d{0,3}([a-zA-Z0-9ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)"placeholder="Nhập địa chỉ" value="<?=$info['dia_chi']?>">
 							</div>
                                     </td>
                                 </tr>
