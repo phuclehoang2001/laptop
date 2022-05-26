@@ -17,7 +17,7 @@ if (!empty($_SESSION['nguoidung'])) {
         <h1 style="text-align: center;">Thêm</h1>
         <div class="product-items">
             <form action="./xulythem.php" method="POST">
-                <input type="text" name="tendanhmuc" value="">
+                <input type="text" name="tendanhmuc" value="" required>
                 <input type="submit" name="btndmadd" value="Lưu"class="btn btn-info"style="text-decoration: none; color:white;">
                 <div class="table-responsive-sm ">
                     <table class="table table-bordered table-striped table-hover">

@@ -18,7 +18,7 @@
     </div>
     <div class="wrap-field">
         <label>Email: </label>
-        <input class="form-control"type="email" name="email" value="" title="Vui lòng nhập email google VD: abc@gmail.com" pattern="^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$" required placeholder="VD: lyphuc823@gmail.com"/>
+        <input class="form-control"type="email" name="email" value="" title="Vui lòng nhập email google VD: abc@gmail.com" pattern="^[a-z0-9](\.?[a-z0-9]){0,}@g(oogle)?mail\.com$" required placeholder="VD: lyphuc823@gmail.com"/>
         <div class="clear-both"></div>
     </div>
     <div class="wrap-field">
